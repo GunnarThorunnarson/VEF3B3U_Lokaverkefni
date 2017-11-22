@@ -1,0 +1,22 @@
+{
+  "short_name": "SensorLeikur",
+  "name": "Lokaverkfni - Sensor Leikur",
+  "icons": [
+    {
+      "src": "myndir/thinking.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "myndir/thinking2.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "myndir/thinking3.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "index.html?launcher=true"
+}
