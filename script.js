@@ -4,6 +4,7 @@ if (window.matchMedia("(orientation: portrait)").matches) {
 }
 if (window.matchMedia("(orientation: landscape)").matches) {
    // you're in LANDSCAPE mode
+
    //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
    addEventListener("click", function() {
     let el = document.documentElement;
@@ -11,6 +12,9 @@ if (window.matchMedia("(orientation: landscape)").matches) {
         || el.webkitRequestFullScreen
         || el.mozRequestFullScreen
         || el.msRequestFullscreen;
+    //reloada til að laga bakgruns myndina
+    location.reload();
     rfs.call(el);
+
   });
 }
