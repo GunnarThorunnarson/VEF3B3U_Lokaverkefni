@@ -5,7 +5,7 @@ window.addEventListener("orientationchange", function() {
        // you're in PORTRAIT mode
        console.log("portrait");
     }
-    if (window.matchMedia("(orientation: landscape)").matches) {
+    else if (window.matchMedia("(orientation: landscape)").matches) {
        // you're in LANDSCAPE mode
        //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
        addEventListener("click", function() {
@@ -19,4 +19,5 @@ window.addEventListener("orientationchange", function() {
 
       });
     }
+
 });
