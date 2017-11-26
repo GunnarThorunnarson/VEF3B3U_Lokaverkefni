@@ -7,7 +7,6 @@ window.addEventListener("orientationchange", function() {
     }
     if (window.matchMedia("(orientation: landscape)").matches) {
        // you're in LANDSCAPE mode
-       alert("prufa")
        //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
        addEventListener("click", function() {
         let el = document.documentElement;
