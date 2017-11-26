@@ -1,4 +1,8 @@
-
+alert("Halloe");
+window.addEventListener("orientationchange", function() {
+    alert("the orientation of the device is now " + screen.orientation.angle);
+});
+/*
 window.addEventListener('orientationchange', main);
 function main() {
   if (window.matchMedia("(orientation: portrait)").matches) {
@@ -21,3 +25,4 @@ function main() {
     });
   }
 }
+*/
