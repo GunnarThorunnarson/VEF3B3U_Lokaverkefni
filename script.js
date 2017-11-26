@@ -1,11 +1,18 @@
 //let canvas = document.getElemntById('canvas');
 //canvas.requestFullScreen();
-
 if (window.matchMedia("(orientation: portrait)").matches) {
    // you're in PORTRAIT mode
-   alert("portrait");
+   console.log("portrait");
 }
 if (window.matchMedia("(orientation: landscape)").matches) {
    // you're in LANDSCAPE mode
-   alert("landscape");
+   addEventListener("click", function() {
+    var el = document.documentElement,
+      rfs = el.requestFullscreen
+        || el.webkitRequestFullScreen
+        || el.mozRequestFullScreen
+        || el.msRequestFullscreen
+    ;
+    rfs.call(el);
+});
 }
