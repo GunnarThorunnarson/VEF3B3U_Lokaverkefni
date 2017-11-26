@@ -1,5 +1,5 @@
 window.addEventListener("orientationchange", function() {
-    alert("the orientation of the device is now " + screen.orientation.angle);
+    //alert("the orientation of the device is now " + screen.orientation.angle);
 
     if (window.matchMedia("(orientation: portrait)").matches) {
        // you're in PORTRAIT mode
