@@ -8,8 +8,6 @@ window.addEventListener("orientationchange", function() {
     else if (window.matchMedia("(orientation: landscape)").matches) {
        // you're in LANDSCAPE mode
        //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
-
-      });
     }
 
 });
@@ -21,3 +19,5 @@ addEventListener("click", function() {
      || el.msRequestFullscreen;
 
  rfs.call(el);
+
+});
