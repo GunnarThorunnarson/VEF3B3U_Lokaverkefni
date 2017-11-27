@@ -8,8 +8,12 @@ body{
   margin: 0;
   padding: 0;
 }
+
 @media screen and (orientation:landscape){
   .rotateImage{
+    display: none;
+  }
+  #instructions{
     display: none;
   }
   canvas{
