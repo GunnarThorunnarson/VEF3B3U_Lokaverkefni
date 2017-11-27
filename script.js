@@ -31,7 +31,7 @@
            ctx.clearRect(0, 0, canvas.width, canvas.height);
          }
 
-
+        console.log("hallo");
       }
   });
   //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
