@@ -7,11 +7,20 @@
       }
       else if (window.matchMedia("(orientation: landscape)").matches) {
 
-
-
       }
   });
 
+    let game = new Phaser.Game(320, 480, Phaser.CANVAS, 'game');
+  	game.state.add('Boot', Pig.Boot);
+  	game.state.add('Preloader', Pig.Preloader);
+  	game.state.add('MainMenu', Pig.MainMenu);
+  	game.state.add('Howto', Pig.Howto);
+  	game.state.add('Game', Pig.Game);
+  	game.state.start('Boot');
+
+
+/*
+GAMALL KÓÐI ÆTLA EKKI AÐ NOTA ÞETTA
   function setUpGame(){
     let canvas = document.getElementById("canvas");
     //widthin og heigtið á canvasinum
@@ -36,6 +45,7 @@
   function clearCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
+  */
   function check(){
     if (!window.screenTop && !window.screenY) {
       console.log('fullscreen');
