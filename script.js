@@ -10,17 +10,16 @@
       }
   });
 
-    let game = new Phaser.Game(320, 480, Phaser.CANVAS, 'game');
-  	game.state.add('Boot', Pig.Boot);
-  	game.state.add('Preloader', Pig.Preloader);
-  	game.state.add('MainMenu', Pig.MainMenu);
-  	game.state.add('Howto', Pig.Howto);
-  	game.state.add('Game', Pig.Game);
-  	game.state.start('Boot');
 
-
+  handleOrientation: function(e) {
+  		// Device Orientation API
+  		var x = e.gamma; // range [-90,90], left-right
+  		var y = e.beta;  // range [-180,180], top-bottom
+  		var z = e.alpha; // range [0,360], up-down
+  		alert(x);
+  }
+  	addEventListener("deviceorientation", handleOrientation, true);
 /*
-GAMALL KÓÐI ÆTLA EKKI AÐ NOTA ÞETTA
   function setUpGame(){
     let canvas = document.getElementById("canvas");
     //widthin og heigtið á canvasinum
