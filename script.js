@@ -11,7 +11,7 @@
   });
 
 
-  handleOrientation: function(e) {
+  function handleOrientation(e) {
   		// Device Orientation API
   		var x = e.gamma; // range [-90,90], left-right
   		var y = e.beta;  // range [-180,180], top-bottom
