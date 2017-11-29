@@ -1,6 +1,7 @@
 {
   "short_name": "SensorLeikur",
   "name": "Lokaverkfni - Sensor Leikur",
+  "display":"standalone",
   "icons": [
     {
       "src": "myndir/thinking.png",

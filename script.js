@@ -14,11 +14,8 @@
   function handleOrientation(e) {
   		// Device Orientation API
   		var x = e.gamma; // range [-90,90], left-right
-  		var y = e.beta;  // range [-180,180], top-bottom
-  		var z = e.alpha; // range [0,360], up-down
-  		alert(x);
+  		move(x);
   }
-  	addEventListener("deviceorientation", handleOrientation, true);
 /*
   function setUpGame(){
     let canvas = document.getElementById("canvas");
@@ -69,8 +66,9 @@
        || el.mozRequestFullScreen
        || el.msRequestFullscreen;
    rfs.call(el);
-
   });
+  addEventListener("deviceorientation", handleOrientation, true);
+
 
 
 
