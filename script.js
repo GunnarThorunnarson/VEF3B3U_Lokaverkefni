@@ -1,4 +1,4 @@
-(function(){
+//(function(){
   window.addEventListener("orientationchange", function() {
       //alert("the orientation of the device is now " + screen.orientation.angle);
       if (window.matchMedia("(orientation: portrait)").matches) {
@@ -11,12 +11,19 @@
   });
 
 
+
+
+
+
   function handleOrientation(e) {
   		// Device Orientation API
-  		var x = e.gamma; // range [-90,90], left-right
+  		let x = e.gamma; // range [-90,90], left-right
   		move(x);
   }
-/*
+  function move(x){
+    gris.body.velocity.x += x;
+  }
+  setUpGame();
   function setUpGame(){
     let canvas = document.getElementById("canvas");
     //widthin og heigtið á canvasinum
@@ -33,15 +40,20 @@
     let xPos = Math.round(maxWidth/2) - size/2;
     //þetta er stærðin á grísnum
     let pig = new Image();
+    pig.onload = function()
+        {
+           ctx.drawImage(pig, xPos, yPos, size, (size * 0.8));
+        }
     pig.src = "myndir/gris.png";
-    //teiknað grísinn
-    ctx.drawImage(pig, xPos, yPos, size, (size * 0.8));
+
   }
+
 
   function clearCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
-  */
+
+
   function check(){
     if (!window.screenTop && !window.screenY) {
       console.log('fullscreen');
@@ -68,9 +80,3 @@
    rfs.call(el);
   });
   addEventListener("deviceorientation", handleOrientation, true);
-
-
-
-
-
-})();
