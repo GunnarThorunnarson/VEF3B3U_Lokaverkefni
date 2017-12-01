@@ -51,6 +51,7 @@ let ctx = canvas.getContext('2d');
     clearCanvas();
     if (x > 0) {
       let speed = 10 * x;
+      alert(speed);
       if ((xPos+Math.round(size) < canvas.width)) {
         xPos+= Math.round(size/speed);
       }
