@@ -59,7 +59,7 @@ let ctx = canvas.getContext('2d');
 
     for (i = 0; i < coins.length; i++) {
       if (coins[i].yPos < canvas.height) {
-        coins[i].yPos += size/30;
+        coins[i].yPos += size/15;
         ctx.drawImage(coin, coins[i].xPos, coins[i].yPos, size/2, size/2);
       }
       else {
@@ -71,7 +71,7 @@ let ctx = canvas.getContext('2d');
 
 
   let move = setInterval(function(){
-    
+
 
     if (x > 0) {
       let speed = 250/x;
