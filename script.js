@@ -1,6 +1,8 @@
 //(function(){
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext('2d');
+
+  //hérna stilli ég width og heigt, width og height fer eftir því í hvaða orientationi siðan er opnuð í.
   if (window.matchMedia("(orientation: portrait)").matches) {
     //widthin og heigtið á canvasinum
     canvas.height  = window.innerWidth;
@@ -28,7 +30,12 @@ let ctx = canvas.getContext('2d');
       }
   pig.src = "myndir/gris.png";
 
-
+  function drawOnCanvas(){
+    ctx.drawImage(pig, xPos, yPos, size, (size * 0.8));
+  }
+  function clearCanvas(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+  }
 
 
   function handleOrientation(e) {
@@ -37,6 +44,24 @@ let ctx = canvas.getContext('2d');
 
   }
 
+  addEventListener("keydown", function(e){
+    e = e || window.event;
+    if (e.keyCode == '37') {
+         clearCanvas();
+         if (xPos > 0) {
+           xPos-= Math.round(size/3);
+         }
+         drawOnCanvas();
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+       clearCanvas();
+       if ((xPos+Math.round(size) < canvas.width)) {
+         xPos+= Math.round(size/3);
+       }
+       drawOnCanvas();
+    }
+  }, false);
 
   addEventListener("deviceorientation", handleOrientation, true);
   //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
@@ -66,9 +91,6 @@ let ctx = canvas.getContext('2d');
       }
   });
 
-    function clearCanvas(){
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
 
 
     function check(){
