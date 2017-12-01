@@ -50,10 +50,14 @@ let ctx = canvas.getContext('2d');
   let move = setInterval(function(){
     clearCanvas();
     if (x > 0) {
-       xPos+= Math.round(size/3);
+      if ((xPos+Math.round(size) < canvas.width)) {
+        xPos+= Math.round(size/3);
+      }
     }
     else if (x < 0) {
-       xPos-= Math.round(size/3);
+      if (xPos > 0) {
+        xPos-= Math.round(size/3);
+      }
     }
     drawOnCanvas();
   });
