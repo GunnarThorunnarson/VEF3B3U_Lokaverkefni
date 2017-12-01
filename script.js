@@ -41,7 +41,7 @@ let ctx = canvas.getContext('2d');
 
   function handleOrientation(e) {
   		// Device Orientation API
-  	 alert(e.beta); 
+  	 x = e.beta; 
 
   }
 
