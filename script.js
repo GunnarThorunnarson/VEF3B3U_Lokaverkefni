@@ -1,14 +1,15 @@
 //(function(){
-  window.addEventListener("orientationchange", function() {
-      //alert("the orientation of the device is now " + screen.orientation.angle);
-      if (window.matchMedia("(orientation: portrait)").matches) {
-         // you're in PORTRAIT mode
-         console.log("portrait");
-      }
-      else if (window.matchMedia("(orientation: landscape)").matches) {
+  if (window.matchMedia("(orientation: portrait)").matches) {
+    //widthin og heigtið á canvasinum
+    canvas.height  = window.innerWidth;
+    canvas.width = window.innerHeight;
+  }
+  else if (window.matchMedia("(orientation: landscape)").matches) {
+    //widthin og heigtið á canvasinum
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
 
-      }
-  });
 
   let canvas = document.getElementById("canvas");
   //widthin og heigtið á canvasinum
@@ -32,51 +33,61 @@
 
 
 
+
   function handleOrientation(e) {
   		// Device Orientation API
   		let x = e.gamma; // range [-90,90], left-right
-  		move(x);
-  }
-  function move(x){
-    pig.body.velocity.x += x;
-  }
-  setUpGame();
-  function setUpGame(){
-
-    //þetta er stærðin á grísnum
-
 
   }
 
 
-  function clearCanvas(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
-
-
-  function check(){
-    if (!window.screenTop && !window.screenY) {
-      console.log('fullscreen');
-    } else {
-      console.log('not fullscreen');
-    }
-  }
-  addEventListener('webkitfullscreenchange', function(e) {
-    check();
-  }, false);
-  addEventListener('mozfullscreenchange', function(e) {
-    check();
-  }, false);
-  addEventListener('fullscreenchange', function(e) {
-    check();
-  }, false);
-  //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
-  addEventListener("click", function() {
-   let el = document.documentElement;
-   let rfs = el.requestFullscreen
-       || el.webkitRequestFullScreen
-       || el.mozRequestFullScreen
-       || el.msRequestFullscreen;
-   rfs.call(el);
-  });
   addEventListener("deviceorientation", handleOrientation, true);
+
+
+
+/*
+========================================
+                    GEYMA
+========================================
+  window.addEventListener("orientationchange", function() {
+      //alert("the orientation of the device is now " + screen.orientation.angle);
+      if (window.matchMedia("(orientation: portrait)").matches) {
+         // you're in PORTRAIT mode
+         console.log("portrait");
+      }
+      else if (window.matchMedia("(orientation: landscape)").matches) {
+
+      }
+  });
+
+    function clearCanvas(){
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+
+    function check(){
+      if (!window.screenTop && !window.screenY) {
+        console.log('fullscreen');
+      } else {
+        console.log('not fullscreen');
+      }
+    }
+    addEventListener('webkitfullscreenchange', function(e) {
+      check();
+    }, false);
+    addEventListener('mozfullscreenchange', function(e) {
+      check();
+    }, false);
+    addEventListener('fullscreenchange', function(e) {
+      check();
+    }, false);
+    //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
+    addEventListener("click", function() {
+     let el = document.documentElement;
+     let rfs = el.requestFullscreen
+         || el.webkitRequestFullScreen
+         || el.mozRequestFullScreen
+         || el.msRequestFullscreen;
+     rfs.call(el);
+    });
+    */
