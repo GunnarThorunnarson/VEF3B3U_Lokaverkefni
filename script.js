@@ -1,4 +1,6 @@
 //(function(){
+let canvas = document.getElementById("canvas");
+let ctx = canvas.getContext('2d');
   if (window.matchMedia("(orientation: portrait)").matches) {
     //widthin og heigtið á canvasinum
     canvas.height  = window.innerWidth;
@@ -11,12 +13,7 @@
   }
 
 
-  let canvas = document.getElementById("canvas");
-  //widthin og heigtið á canvasinum
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
   //náð í context úr canvasinum
-  let ctx = canvas.getContext('2d');
   let maxWidth = Math.round(canvas.width);
   let maxHeigt = Math.round(canvas.height);
   //reiknað út stærðina á grísnum
