@@ -24,6 +24,7 @@ let ctx = canvas.getContext('2d');
   let yPos = maxHeigt - size;
   let xPos = Math.round(maxWidth/2) - size/2;
   let pig = new Image();
+  let x = 0;
   pig.onload = function()
       {
          ctx.drawImage(pig, xPos, yPos, size, (size * 0.8));
@@ -40,9 +41,22 @@ let ctx = canvas.getContext('2d');
 
   function handleOrientation(e) {
   		// Device Orientation API
-  		let x = e.gamma; // range [-90,90], left-right
+  	  x = e.gamma; // range [-90,90], left-right
 
   }
+
+
+
+  let move = setInterval(function(){
+    clearCanvas();
+    if (x > 0) {
+       xPos+= Math.round(size/3);
+    }
+    else if (x < 0) {
+       xPos-= Math.round(size/3);
+    }
+    drawOnCanvas();
+  });
 
   addEventListener("keydown", function(e){
     e = e || window.event;
