@@ -41,7 +41,7 @@ let ctx = canvas.getContext('2d');
 
   function handleOrientation(e) {
   		// Device Orientation API
-  	 x = e.beta; 
+  	 x = e.beta;
 
   }
 
@@ -51,12 +51,12 @@ let ctx = canvas.getContext('2d');
     clearCanvas();
     if (x > 0) {
       if ((xPos+Math.round(size) < canvas.width)) {
-        xPos+= Math.round(size/3);
+        xPos+= Math.round(size/30);
       }
     }
     else if (x < 0) {
       if (xPos > 0) {
-        xPos-= Math.round(size/3);
+        xPos-= Math.round(size/30);
       }
     }
     drawOnCanvas();
