@@ -39,6 +39,15 @@ let ctx = canvas.getContext('2d');
 
 
   addEventListener("deviceorientation", handleOrientation, true);
+  //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
+  addEventListener("click", function() {
+   let el = document.documentElement;
+   let rfs = el.requestFullscreen
+       || el.webkitRequestFullScreen
+       || el.mozRequestFullScreen
+       || el.msRequestFullscreen;
+   rfs.call(el);
+  });
 
 
 
@@ -78,13 +87,5 @@ let ctx = canvas.getContext('2d');
     addEventListener('fullscreenchange', function(e) {
       check();
     }, false);
-    //Event listener sem að lætur í fullscreen þegar ýtt er á skjáinn
-    addEventListener("click", function() {
-     let el = document.documentElement;
-     let rfs = el.requestFullscreen
-         || el.webkitRequestFullScreen
-         || el.mozRequestFullScreen
-         || el.msRequestFullscreen;
-     rfs.call(el);
-    });
+
     */
