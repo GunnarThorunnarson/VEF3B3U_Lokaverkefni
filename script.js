@@ -24,11 +24,14 @@ let ctx = canvas.getContext('2d');
   let yPos = maxHeigt - size;
   let xPos = Math.round(maxWidth/2) - size/2;
   let pig = new Image();
+  let coin = new Image();
   let x = 0;
+  let coins = [];
   pig.onload = function()
       {
          ctx.drawImage(pig, xPos, yPos, size, (size * 0.8));
       }
+  coin.src = "myndir/coin.png";
   pig.src = "myndir/gris.png";
 
   function drawOnCanvas(){
@@ -44,11 +47,32 @@ let ctx = canvas.getContext('2d');
   	 x = e.beta;
 
   }
+  let spawnCoins = setInterval(function(){
+    let pos = Math.floor((Math.random() * canvas.width));
+    let c = {xPos:pos, yPos:0}
+    coins.push(c);
+  }, 1000);
+  let drawCoins = setInterval(function()
+  {
+    clearCanvas();
+    drawOnCanvas();
 
+    for (i = 0; i < coins.length; i++) {
+      if (coins[i].yPos < canvas.height) {
+        coins[i].yPos += size/30;
+        ctx.drawImage(coin, coins[i].xPos, coins[i].yPos, size/2, size/2);
+      }
+      else {
+        coins.splice(i,1); // first element removed
+      }
+    }
+
+  }, 10);
 
 
   let move = setInterval(function(){
-    clearCanvas();
+    
+
     if (x > 0) {
       let speed = 250/x;
       if ((xPos+Math.round(size) < canvas.width)) {
@@ -67,7 +91,7 @@ let ctx = canvas.getContext('2d');
   addEventListener("keydown", function(e){
     e = e || window.event;
     if (e.keyCode == '37') {
-         clearCanvas();
+
          if (xPos > 0) {
            xPos-= Math.round(size/3);
          }
@@ -75,7 +99,7 @@ let ctx = canvas.getContext('2d');
     }
     else if (e.keyCode == '39') {
        // right arrow
-       clearCanvas();
+
        if ((xPos+Math.round(size) < canvas.width)) {
          xPos+= Math.round(size/3);
        }
@@ -93,6 +117,7 @@ let ctx = canvas.getContext('2d');
        || el.msRequestFullscreen;
    rfs.call(el);
   });
+
 
 
 
