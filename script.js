@@ -50,13 +50,13 @@ let ctx = canvas.getContext('2d');
   let move = setInterval(function(){
     clearCanvas();
     if (x > 0) {
-      let speed = 100/x;
+      let speed = 500/x;
       if ((xPos+Math.round(size) < canvas.width)) {
         xPos+= Math.round(size/speed);
       }
     }
     else if (x < 0) {
-      let speed = 10;
+      let speed = (500/x) * (-1);
       if (xPos > 0) {
         xPos-= Math.round(size/speed);
       }
