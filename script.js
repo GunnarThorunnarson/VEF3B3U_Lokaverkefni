@@ -75,9 +75,9 @@ let ctx = canvas.getContext('2d');
     addPoints();
     for (i = 0; i < coins.length; i++) {
       if (coins[i].yPos >= (yPos - size/3) && coins[i].xPos <= (xPos + ((size * 0.8) / 2)) && coins[i].xPos >= (xPos - ((size * 0.8) / 2))) {
-
         points++;
         coins.splice(i, 1);
+        vibrate();
       }
       else if (coins[i].yPos < maxHeigt) {
         coins[i].yPos += size/15;
