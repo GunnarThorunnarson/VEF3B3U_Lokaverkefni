@@ -52,7 +52,13 @@ let ctx = canvas.getContext('2d');
     }
     ctx.drawImage(coin, (size * 0.75), (size * 0.35), (size/3), (size/3));
   }
-
+  function vibrate(){
+    //ef síminn getur vibrate-ap þá gerir hann það, annars ekki
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+    if (navigator.vibrate) {
+      navigator.vibrate(100);
+    }
+  }
   function handleOrientation(e) {
   		// Device Orientation API
   	 x = e.beta;
