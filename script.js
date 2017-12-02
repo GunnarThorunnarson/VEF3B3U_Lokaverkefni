@@ -39,19 +39,26 @@ let ctx = canvas.getContext('2d');
     ctx.drawImage(pig, xPos, yPos, size, (size * 0.8));
   }
   function clearCanvas(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, maxWidth, maxHeigt);
   }
   function addPoints(){
-
+    ctx.font = "30px Calibri";
+    ctx.fillStyle = "yellow";
+    if (points < 10) {
+      ctx.fillText("0" + points + "x",size/5,size * 0.6);
+    }
+    else {
+      ctx.fillText(points + "x",size/5,size * 0.6);
+    }
+    ctx.drawImage(coin, (size * 0.75), (size * 0.35), (size/3), (size/3));
   }
 
   function handleOrientation(e) {
   		// Device Orientation API
   	 x = e.beta;
-
   }
   let spawnCoins = setInterval(function(){
-    let pos = Math.floor((Math.random() * canvas.width));
+    let pos = Math.floor((Math.random() * maxWidth));
     let c = {xPos:pos, yPos:0}
     coins.push(c);
   }, 1000);
@@ -59,17 +66,18 @@ let ctx = canvas.getContext('2d');
   {
     clearCanvas();
     drawOnCanvas();
+    addPoints();
     for (i = 0; i < coins.length; i++) {
       if (coins[i].yPos >= (yPos - size/3) && coins[i].xPos <= (xPos + ((size * 0.8) / 2)) && coins[i].xPos >= (xPos - ((size * 0.8) / 2))) {
 
         points++;
         coins.splice(i, 1);
       }
-      else if (coins[i].yPos < canvas.height) {
+      else if (coins[i].yPos < maxHeigt) {
         coins[i].yPos += size/15;
         ctx.drawImage(coin, coins[i].xPos, coins[i].yPos, size/2, size/2);
       }
-      else if (coins[i].yPos > canvas.height) {
+      else if (coins[i].yPos > maxHeigt) {
         coins.splice(i,1);
       }
     }
@@ -80,7 +88,7 @@ let ctx = canvas.getContext('2d');
   let movePig = setInterval(function(){
     if (x > 0) {
       let speed = 250/x;
-      if ((xPos+Math.round(size) < canvas.width)) {
+      if ((xPos+Math.round(size) < maxWidth)) {
         xPos+= Math.round(size/speed);
       }
     }
@@ -105,7 +113,7 @@ let ctx = canvas.getContext('2d');
     else if (e.keyCode == '39') {
        // right arrow
 
-       if ((xPos+Math.round(size) < canvas.width)) {
+       if ((xPos+Math.round(size) < maxWidth)) {
          xPos+= Math.round(size/3);
        }
        drawOnCanvas();
