@@ -98,7 +98,6 @@ let ctx = canvas.getContext('2d');
         xPos-= Math.round(size/speed);
       }
     }
-    drawOnCanvas();
   });
 
   addEventListener("keydown", function(e){
