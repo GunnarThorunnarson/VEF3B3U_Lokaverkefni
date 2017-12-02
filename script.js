@@ -26,6 +26,7 @@ let ctx = canvas.getContext('2d');
   let pig = new Image();
   let coin = new Image();
   let x = 0;
+  let points = 0;
   let coins = [];
   pig.onload = function()
       {
@@ -40,7 +41,9 @@ let ctx = canvas.getContext('2d');
   function clearCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
+  function addPoints(){
 
+  }
 
   function handleOrientation(e) {
   		// Device Orientation API
@@ -56,23 +59,25 @@ let ctx = canvas.getContext('2d');
   {
     clearCanvas();
     drawOnCanvas();
-
     for (i = 0; i < coins.length; i++) {
-      if (coins[i].yPos < canvas.height) {
+      if (coins[i].yPos >= (yPos - size/3) && coins[i].xPos <= (xPos + ((size * 0.8) / 2)) && coins[i].xPos >= (xPos - ((size * 0.8) / 2))) {
+
+        points++;
+        coins.splice(i, 1);
+      }
+      else if (coins[i].yPos < canvas.height) {
         coins[i].yPos += size/15;
         ctx.drawImage(coin, coins[i].xPos, coins[i].yPos, size/2, size/2);
       }
-      else {
-        coins.splice(i,1); // first element removed
+      else if (coins[i].yPos > canvas.height) {
+        coins.splice(i,1);
       }
     }
 
   }, 10);
 
 
-  let move = setInterval(function(){
-
-
+  let movePig = setInterval(function(){
     if (x > 0) {
       let speed = 250/x;
       if ((xPos+Math.round(size) < canvas.width)) {
