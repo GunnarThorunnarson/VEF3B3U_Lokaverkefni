@@ -1,4 +1,0 @@
-manifest(app icon)
-https://developers.google.com/web/fundamentals/web-app-manifest/?utm_source=devtools
-fullscreen api
-https://developers.google.com/web/updates/2011/10/Let-Your-Content-Do-the-Talking-Fullscreen-API
