@@ -6,3 +6,4 @@ Lokaútkoman var betur umbættur leikur sem ég gerði í byrjun annar með svg,
 
 ### Linkar
 [Linkur á leikinn, hýst á github pages](https://mikaelmani99.github.io/VEF3B3U_Lokaverkefni/index.html)
+[Linkur á wiki-ið](https://github.com/MikaelMani99/VEF3B3U_Lokaverkefni/wiki)
